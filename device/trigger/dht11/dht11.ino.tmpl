@@ -7,6 +7,7 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 unsigned long t_{{.Id}}_lt = 0; // lastTrigger
+bool t_{{.Id}}_lc = false; // lastCondition
 
 void t_{{.Id}}_init() {
 
@@ -17,8 +18,6 @@ void t_{{.Id}}() {
 
     int value = dht.readTemperature();
 
-    // Initialize last condition
-    bool t_{{.Id}}_lc = false;
     // create custom condition
     bool condition = value {{setting . "condition"}};
 
