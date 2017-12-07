@@ -17,8 +17,8 @@ void t_{{.Id}}_init() {
 
 void t_{{.Id}}() {
 
-    int value = dht.readTemperature();
-    float humidity = dht.readHumidity();
+    //int value = dht.readTemperature();
+    int value = dht.readHumidity();
 
     // create custom condition
     bool condition = value {{setting . "condition"}};
