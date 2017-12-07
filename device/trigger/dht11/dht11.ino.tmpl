@@ -12,18 +12,21 @@ bool t_{{.Id}}_lc = false; // lastCondition
 void t_{{.Id}}_init() {
 
     dht.begin();
+    delay(100);
 }
 
 void t_{{.Id}}() {
 
     int value = dht.readTemperature();
+    float humidity = dht.readHumidity();
 
     // create custom condition
     bool condition = value {{setting . "condition"}};
 
-    if (condition && !t_{{.Id}}_lc) {
+    //if (condition && !t_{{.Id}}_lc) {
       a_{{.ActionId}}(value);
-    }
+    //}
 
     t_{{.Id}}_lc = condition;
+    delay(2000);
 }
