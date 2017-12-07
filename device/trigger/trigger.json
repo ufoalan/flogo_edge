@@ -1,0 +1,43 @@
+{
+  "name": "tibco-device-dht11",
+  "type": "flogo:device:trigger",
+  "ref": "github.com/ufoalan/flogo_edge/device/trigger/dht11",
+  "version": "0.0.1",
+  "title": "DHT11 Trigger",
+  "description": "Simple DHT11 Trigger",
+  "libs":[
+    {
+      "name":"DHT sensor library",
+      "type":"platformio",
+      "ref":"19"
+    },
+    {
+      "name":"Adafruit Unified Sensor",
+      "type":"platformio",
+      "ref":"31"
+    }
+  ],
+  "settings":[
+    {
+      "name":"reading",
+      "type":"string",
+      "allowed":["Temperature","Humidity"]
+    },
+    {
+      "name": "condition",
+      "type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "value",
+      "type": "int"
+    }
+  ],
+  "device_support": [
+    {
+      "framework":"arduino",
+      "template":"dht11.ino.tmpl"
+    }
+  ]
+}
